@@ -74,7 +74,7 @@ public class JdbcOwnerRepositoryImpl implements OwnerRepository {
      * already loaded.
      */
     @Override
-    public Collection<Owner> findByLastName(String lastName) throws DataAccessException {
+    public Collection<Owner> findByLastNameOrEmail(String lastName) throws DataAccessException {
         Map<String, Object> params = new HashMap<>();
         params.put("lastName", lastName + "%");
         List<Owner> owners = this.namedParameterJdbcTemplate.query(

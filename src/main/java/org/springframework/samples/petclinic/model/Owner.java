@@ -57,6 +57,10 @@ public class Owner extends Person {
     @Digits(fraction = 0, integer = 10)
     private String telephone;
 
+    @Column(name = "email")
+    @NotEmpty
+    private String email;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets;
 
@@ -83,6 +87,14 @@ public class Owner extends Person {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     protected Set<Pet> getPetsInternal() {
@@ -148,6 +160,7 @@ public class Owner extends Person {
             .append("address", this.address)
             .append("city", this.city)
             .append("telephone", this.telephone)
+            .append("email", this.email)
             .toString();
     }
 }

@@ -69,7 +69,7 @@ public class ClinicServiceImpl implements ClinicService {
     @Override
     @Transactional(readOnly = true)
     public Collection<Owner> findOwnerByLastName(String lastName) throws DataAccessException {
-        return ownerRepository.findByLastName(lastName);
+        return ownerRepository.findByLastNameOrEmail(lastName);
     }
 
     @Override
